@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../components/Input";
 import Select from "../components/Select";
 import { Produto, useProduto } from "../context/ProdutosContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CadastrarProduto = () => {
   const [nome, setNome] = React.useState("");
@@ -33,7 +33,11 @@ const CadastrarProduto = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center flex-col items-center h-screen">
+      <div>
+        <Link to="/listagem">produtos</Link>
+      </div>
+    <div >
       <form onSubmit={cadastrarNovoProduto}>
         <Input
           label="Nome produto"
@@ -65,6 +69,7 @@ const CadastrarProduto = () => {
           Cadastrar
         </button>
       </form>
+    </div>
     </div>
   );
 };

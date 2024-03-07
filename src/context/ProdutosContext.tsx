@@ -21,7 +21,20 @@ export const useProduto = () => {
 }
 
 export const ProdutosProviter = ({children}: React.PropsWithChildren) => {
-  const [produtos, setProdutos] = React.useState<Produto[]>([])
+  const [produtos, setProdutos] = React.useState<Produto[]>(() => {
+    const local = window.localStorage.getItem('produtos')
+    if(local) {
+      return JSON.parse(local)
+    } else {
+      return []
+    }
+  })
+
+  // fazer um efeito que quando produtos mudar, adicionar ao localstorage os produtos, e no useState buscar no localstorage para ver se existe algum produto salvo.
+
+  React.useEffect(()=> {
+    window.localStorage.setItem('produtos', JSON.stringify(produtos))
+  },[produtos])
 
   const addProduto = (novoProduto: Produto) => {
     setProdutos([...produtos, novoProduto])
