@@ -11,7 +11,7 @@ const Select = ({ label, options, ...props }: SelectProps) => {
       <label className="block text-lg" htmlFor={label}>
         Disponivel para venda?
       </label>
-      <select name={label} id={label} {...props}>
+      <select name={label} id={label} {...props} className="rounded ">
         <option value="" disabled></option>
         {options.map((option) => (
           <option key={option}>{option}</option>

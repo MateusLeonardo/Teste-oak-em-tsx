@@ -4,7 +4,7 @@ import { useProduto } from "../context/ProdutosContext";
 const ListagemProduto = () => {
   const { produtos } = useProduto();
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-gray-300">
       <div>
         <Link
           className="text-xl py-2 px-5 bg-slate-400 block w-max rounded-lg mb-2"
